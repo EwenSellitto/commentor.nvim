@@ -43,7 +43,7 @@ function M.add_comment()
     line_start_filler .. filler .. end_comment,
     "",
   }
-  local row, _ = table.unpack(vim.api.nvim_win_get_cursor(0))
+  local row = vim.api.nvim_win_get_cursor(0)[1]
 
   vim.api.nvim_buf_set_lines(0, row, row, false, header_lines)
 end
