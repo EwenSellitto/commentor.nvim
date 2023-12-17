@@ -22,7 +22,7 @@ end
 function M.add_comment()
   local content = get_content()
   local start_comment, end_comment = get_comment_string()
-  local filler = string.rep("=", string.len(content) + 3)
+  local filler = string.rep("=", string.len(content) + 4)
 
   if start_comment == nil then
     return
@@ -38,9 +38,9 @@ function M.add_comment()
 
   local header_lines = {
     "",
-    start_comment .. filler,
+    start_comment .. filler .. line_start_filler,
     line_start_filler .. string.format("  %s  ", content) .. line_start_filler,
-    filler .. end_comment,
+    line_start_filler .. filler .. end_comment,
     "",
   }
   local row, _ = table.unpack(vim.api.nvim_win_get_cursor(0))
