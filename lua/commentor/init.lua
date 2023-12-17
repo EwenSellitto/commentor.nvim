@@ -30,7 +30,7 @@ function M.add_comment()
     end_comment = start_comment
   end
 
-  local line_start_filler = string.rep(start_comment[1], 2)
+  local line_start_filler = string.rep(start_comment:sub(1, 1), 2)
 
   if content == "" or start_comment == nil then
     return
